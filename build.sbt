@@ -31,3 +31,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick"                % "3.1.1",
   "org.scalatest"      %% "scalatest"            % "2.2.6" % "test"
 )
+
+testOptions in Test += Tests.Argument("-oF")
