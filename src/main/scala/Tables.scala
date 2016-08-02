@@ -26,13 +26,14 @@ object Suppliers {
   val all = TableQuery[Suppliers]
 }
 
-class Coffees(tag: Tag) extends Table[(String, Int, Double, Int, Int)](tag, "COFFEES") {
-  def name = column[String]("COF_NAME", O.PrimaryKey)
+class Coffees(tag: Tag) extends Table[(Int, String, Int, Double, Int, Int)](tag, "COFFEES") {
+  def id = column[Int]("COF_ID", O.PrimaryKey)
+  def name = column[String]("COF_NAME")
   def supID = column[Int]("SUP_ID")
   def price = column[Double]("PRICE")
   def sales = column[Int]("SALES")
   def total = column[Int]("TOTAL")
-  def * = (name, supID, price, sales, total)
+  def * = (id, name, supID, price, sales, total)
   def supplier = foreignKey("SUP_FK", supID, Suppliers.all)(_.id)
 }
 
