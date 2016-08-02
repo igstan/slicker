@@ -1,0 +1,13 @@
+language: scala
+scala:
+  - 2.11.8
+jdk:
+  - oraclejdk8
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt/boot/
+addons:
+  mariadb: '10.0'
+before_install:
+  - mysql -e "CREATE DATABASE IF NOT EXISTS slicker CHARACTER SET utf8mb4;" -uroot
